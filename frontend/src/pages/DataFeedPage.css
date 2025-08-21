@@ -1,0 +1,117 @@
+.data-feed-container {
+    padding: 40px 20px;
+    background-color: #f0f2f5;
+    min-height: 90vh;
+}
+
+.feed-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.feed-header h1 {
+    font-size: 36px;
+    color: #1c1e21;
+    margin-bottom: 10px;
+}
+
+.feed-header p {
+    font-size: 18px;
+    color: #606770;
+}
+
+.feed-status {
+    text-align: center;
+    font-size: 18px;
+    color: #606770;
+}
+
+.feed-status.error {
+    color: #e74c3c;
+}
+
+.feed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.submission-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.submission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-status {
+    align-self: flex-start;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.status-pending_validation {
+    background-color: #f39c12;
+    color: white;
+}
+/* You can add more statuses later */
+.status-validated {
+    background-color: #27ae60;
+    color: white;
+}
+.status-rejected {
+    background-color: #c0392b;
+    color: white;
+}
+
+
+.card-title {
+    font-size: 20px;
+    color: #1c1e21;
+    margin: 0 0 10px 0;
+}
+
+.card-description {
+    font-size: 16px;
+    color: #606770;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.card-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ebee;
+    font-size: 14px;
+    color: #90949c;
+}
+
+.card-footer p {
+    margin: 5px 0;
+}

@@ -1,0 +1,99 @@
+.threat-dashboard {
+    position: absolute;
+    top: 0;
+    left: 0; /* Position on the left */
+    width: 380px; /* A bit wider */
+    height: 100%;
+    
+    /* "Glassmorphism" effect */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+
+    z-index: 1001;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+    padding: 25px;
+    box-sizing: border-box;
+    
+    /* Smooth slide-in transition */
+    transform: translateX(0);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Add a class to hide the dashboard off-screen */
+.threat-dashboard.hidden {
+    transform: translateX(-100%);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.threat-dashboard h3 {
+    margin-top: 10px;
+    color: #ffffff; /* White text for better contrast on blur */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 15px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.threat-dashboard p {
+    line-height: 1.7;
+    color: #e0e0e0; /* Lighter text color */
+    font-size: 16px;
+}
+
+.severity {
+    padding: 8px 12px;
+    border-radius: 20px; /* Pill shape */
+    color: white;
+    display: inline-block;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* Vibrant severity colors */
+.severity-high { background-color: #e53935; }
+.severity-medium { background-color: #fdd835; color: #333; }
+.severity-critical { background-color: #8e24aa; }
+
+.dashboard-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.dashboard-actions button {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 16px;
+    transition: background 0.2s ease;
+}
+
+.dashboard-actions button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}

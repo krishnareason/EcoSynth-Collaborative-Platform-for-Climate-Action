@@ -1,0 +1,107 @@
+.submit-report-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f4f7f6;
+}
+
+.submit-report-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px;
+}
+
+.submit-report-card h2 {
+    margin-top: 0; text-align: center; color: #2c3e50; font-size: 28px; margin-bottom: 10px;
+}
+
+.submit-report-card > p {
+    text-align: center; color: #7f8c8d; margin-bottom: 30px;
+}
+
+/* --- Start Capture State --- */
+.start-capture { text-align: center; padding: 30px 0; }
+.start-btn {
+    padding: 15px 30px; border: none; border-radius: 8px; background-color: #3498db;
+    color: white; font-size: 18px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease;
+}
+.start-btn:hover { background-color: #2980b9; }
+
+/* --- Camera View --- */
+.camera-view {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+}
+.camera-view video { width: 100%; display: block; }
+.capture-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-color: rgba(255, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+/* --- Form Content after capture --- */
+.form-content { animation: fadeIn 0.5s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.image-preview {
+    position: relative;
+    margin-bottom: 20px;
+}
+.image-preview img {
+    width: 100%;
+    border-radius: 8px;
+}
+.retake-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.location-data {
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    color: #34495e;
+    font-weight: 500;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #34495e; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 12px; border: 1px solid #bdc3c7; border-radius: 8px; font-size: 16px; box-sizing: border-box;
+}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: #3498db; }
+
+.submit-btn {
+    width: 100%; padding: 15px; border: none; border-radius: 8px; background-color: #27ae60;
+    color: white; font-size: 18px; font-weight: 600; cursor: pointer;
+}
+.submit-btn:hover { background-color: #229954; }
+.submit-btn:disabled { background-color: #95a5a6; cursor: not-allowed; }
+
+.message { padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; }
+.error-message { background-color: #fbeae5; color: #c0392b; }
+.success-message { background-color: #eafaf1; color: #229954; }
+
+.progress-bar-container { width: 100%; height: 25px; background-color: #ecf0f1; border-radius: 5px; margin-bottom: 20px; overflow: hidden; }
+.progress-bar { height: 100%; background-color: #3498db; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; transition: width 0.3s ease; }

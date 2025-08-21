@@ -1,6 +1,7 @@
 import React from 'react';
 import ActiveProjectsList from './ActiveProjectsList';
-import MyProjectsList from './MyProjectsList'; // Import the new component
+import MyProjectsList from './MyProjectsList'; 
+import ClaimChallengeList from './ClaimChallengeList';
 
 export default function StudentWarRoom() {
   return (
@@ -10,13 +11,9 @@ export default function StudentWarRoom() {
         Welcome! Here you can see the projects you've joined and find new projects to contribute to.
       </p>
       <hr />
-      
-      {/* This component now shows the user's personal project list */}
       <MyProjectsList />
-
+      <ClaimChallengeList />
       <hr style={{ margin: '40px 0' }}/>
-      
-      {/* This component shows all active projects, allowing students to join new ones */}
       <ActiveProjectsList />
     </div>
   );

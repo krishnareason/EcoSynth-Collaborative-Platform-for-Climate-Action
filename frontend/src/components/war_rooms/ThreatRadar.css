@@ -1,0 +1,80 @@
+.map-container {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* CORRECTED: This ensures map controls (zoom) are not hidden by our dashboard */
+/* It now correctly accounts for the dashboard's width and padding. */
+.map-container .leaflet-left {
+    left: 400px; /* Width of dashboard (380px) + 20px padding */
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.legend {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.legend h4 { margin-top: 0; margin-bottom: 10px; text-align: center; }
+.legend div { display: flex; align-items: center; margin-bottom: 5px; }
+.legend img { width: 25px; height: 25px; margin-right: 10px; }
+
+/* --- Theme Switcher Styles --- */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    gap: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.theme-switcher button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-switcher button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.theme-switcher button:not(.active):hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Pulsating Icon for AI Predictions --- */
+.prediction-icon {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 1);
+    animation: pulse 1.75s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 20px rgba(231, 76, 60, 0);
+    }
+}

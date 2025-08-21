@@ -2,49 +2,51 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
-// ... (styles remain the same)
-const navStyle = { 
-  display: 'flex', 
-  justifyContent: 'space-between', 
-  alignItems: 'center',
-  padding: '1rem 2rem', 
-  background: '#fff', 
-  borderBottom: '1px solid #e0e0e0',
-  boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-};
-const linkStyle = { 
-  textDecoration: 'none', 
-  color: '#333', 
-  margin: '0 15px',
-  fontWeight: '500'
-};
-const brandStyle = { 
-  ...linkStyle, 
-  fontWeight: 'bold',
-  fontSize: '1.5rem',
-  color: '#007bff'
-};
-const buttonStyle = {
-  border: 'none',
-  background: 'transparent',
-  color: '#007bff',
-  cursor: 'pointer',
-  fontSize: '1rem',
-  fontWeight: '500',
-  padding: '0',
-  margin: '0 15px'
-};
-// --- NEW: Style for the welcome message ---
-const welcomeStyle = {
-  marginRight: '20px',
-  color: '#555',
-  fontWeight: 'bold'
-};
-
 export default function Navbar() {
-  // --- UPDATED: Get userProfile from the context ---
-  const { currentUser, userProfile, logout } = useAuth();
+  const { currentUser, currentUserData, logout } = useAuth();
   const navigate = useNavigate();
+
+  // STYLES (now being used below)
+  const navStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '1rem 2rem',
+    backgroundColor: '#2c3e50',
+    color: 'white',
+  };
+
+  const navLinksStyle = {
+    listStyle: 'none',
+    display: 'flex',
+    gap: '20px',
+    alignItems: 'center',
+  };
+
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+    fontSize: '16px',
+  };
+  
+  const brandStyle = {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+  };
+  
+  const buttonStyle = {
+    ...linkStyle,
+    backgroundColor: 'transparent',
+    border: '1px solid white',
+    padding: '8px 12px',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  };
+  
+  const welcomeStyle = {
+    color: '#ecf0f1',
+    marginRight: '15px',
+  };
 
   const handleLogout = async () => {
     try {
@@ -57,30 +59,27 @@ export default function Navbar() {
 
   return (
     <nav style={navStyle}>
-      <div>
-        <Link to="/" style={brandStyle}>EcoSynth</Link>
-      </div>
-      <div style={{display: 'flex', alignItems: 'center'}}>
+      <Link to="/" style={{ ...linkStyle, ...brandStyle }}>
+        EcoSynth
+      </Link>
+      <ul style={navLinksStyle}>
         {currentUser ? (
           <>
-            {/* --- NEW: Personalized Welcome Message --- */}
-            <span style={welcomeStyle}>
-              Welcome, {userProfile ? userProfile.name : 'User'}
-            </span>
-            <Link to="/dashboard" style={linkStyle}>My War Room</Link>
-            <Link to="/submit-report" style={linkStyle}>Submit Report</Link>
-            <Link to="/profile" style={linkStyle}>Profile</Link>
-            <button onClick={handleLogout} style={buttonStyle}>
-              Log Out
-            </button>
+            <li style={welcomeStyle}>Welcome, {currentUserData?.name || currentUser.email}</li>
+            <li><Link to="/dashboard" style={linkStyle}>Dashboard</Link></li>
+            <li><Link to="/threat-radar" style={linkStyle}>Threat Radar</Link></li>
+            <li><Link to="/submit-report" style={linkStyle}>Submit Report</Link></li>
+            <li><Link to="/data-feed" style={linkStyle}>Data Feed</Link></li>
+            <li><Link to="/profile" style={linkStyle}>Profile</Link></li>
+            <li><button onClick={handleLogout} style={buttonStyle}>Log Out</button></li>
           </>
         ) : (
           <>
-            <Link to="/login" style={linkStyle}>Login</Link>
-            <Link to="/signup" style={linkStyle}>Sign Up</Link>
+            <li><Link to="/signup" style={linkStyle}>Sign Up</Link></li>
+            <li><Link to="/login" style={linkStyle}>Log In</Link></li>
           </>
         )}
-      </div>
+      </ul>
     </nav>
   );
 }
